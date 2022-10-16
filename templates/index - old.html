@@ -1,0 +1,149 @@
+<!-- ===========================================================-->
+<!-- TABLEAU ANALYTICS                                          -->
+<!--                                                            -->
+<!-- Issue:       29-Aug-2022                                   -->
+<!-- Presentation:12-Sep-2022                                   -->
+<!-- Team:        Team 6                                        -->  
+<!-- Note:        Heroku deployment                             -->
+<!-- ===========================================================-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Embedded Analytics with Tableau</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <style>
+    h4 {text-align: center;}
+    p {text-align: center;}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="nav-link" href="/">Home </a> | 
+          <a class="nav-link" href="#1">Models, train scores and test scores</a> | 
+          <a class="nav-link" href="#2">Logistic Regression</a> | 
+          <a class="nav-link" href="#3">KNN</a> |
+          <a class="nav-link" href="#4">RF Middle Ground</a> |
+          <a class="nav-link" href="#5">RF Feature Importance</a> |
+          <a class="nav-link" href="#6">Tableau triple line graph</a> |
+          <a class="nav-link" href="#7">Tableau impact on credit score</a> 
+
+    </div>
+  </nav>
+  <div class="col-md-12 text-centre"  >
+    <h1 style="color: #0b2ca4f3;">Summary</h1>
+  </div>
+  <p> We implemented the following analytics:
+  </p>
+  <div class="row">
+  <ul>
+    <li>Models and their training scores vs test scores</li>
+    <li>Logistic regression: lowest train scores and test scores</li>
+    <li>KNN: highest train and test scores, but over trained as per higher training scores than test scores (0.72 vs 0.66)</li>
+    <li>RF: middle ground, no over-training and relatively high scores</li>
+    <li>RF feature importance shows which features have the most impact on credit score </li>
+    <li>Tableau representations (triple line graph showing median annual income vs credit score)</li>
+    <li>Tableau graphs of other variables with high feature importance / their impact on credit score</li>
+    </ul> 
+  </div>
+
+    <div class="col-md-12 text-centre"  >
+      <h1 style="color: #0b2ca4f3;" id="1">Models and their training scores vs test scores</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="nav-link" href="/">Home </a> 
+      </div>
+    </nav>
+
+  <img src="../Resources/IncomeVsCredit_score.png">
+  
+  <hr>
+
+  <div class="col-md-12  text-centre"  >
+    <h1 style="color: #0b2ca4f3;" id="2">Logistic regression: lowest train scores and test scores</h1>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="nav-link" href="/">Home </a> 
+    </div>
+  </nav>
+
+  <img src="../Resources/IncomeVsCredit_score.png">
+
+ <hr>
+
+ <div class="col-md-12  text-centre"  >
+  <h1 style="color: #0b2ca4f3;" id="3">KNN: highest train and test scores, but over trained as per higher training scores than test scores (0.72 vs 0.66)</h1>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="nav-link" href="/">Home </a> 
+  </div>
+</nav>
+
+<img src="../Resources/knn_code.png">
+
+
+<hr>
+
+<div class="col-md-12  text-centre"  >
+ <h1 style="color: #0b2ca4f3;" id="4">RF: middle ground, no over-training and relatively high scores</h1>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <a class="nav-link" href="/">Home </a> 
+ </div>
+</nav>
+
+<img src="../Resources/IncomeVsCredit_score.png">
+
+<hr>
+
+<div class="col-md-12  text-centre"  >
+ <h1 style="color: #0b2ca4f3;" id="5">RF feature importance shows which features have the most impact on credit score</h1>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <a class="nav-link" href="/">Home </a> 
+ </div>
+</nav>
+
+<img src="../Resources/IncomeVsCredit_score.png">
+
+<hr>
+
+<div class="col-md-12  text-centre"  >
+ <h1 style="color: #0b2ca4f3;" id="6">Tableau representations (triple line graph showing median annual income vs credit score)</h1>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <a class="nav-link" href="/">Home </a> 
+ </div>
+</nav>
+
+<div class='tableauPlaceholder' id='viz1665468929206' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ma&#47;machine_learning_credit_score&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='machine_learning_credit_score&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ma&#47;machine_learning_credit_score&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1665468929206');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+<hr>
+
+<div class="col-md-12  text-centre"  >
+ <h1 style="color: #0b2ca4f3;" id="7">Tableau graphs of other variables with high feature importance / their impact on credit score</h1>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <a class="nav-link" href="/">Home </a> 
+ </div>
+</nav>
+
+<div class='tableauPlaceholder' id='viz1665468929206' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ma&#47;machine_learning_credit_score&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='machine_learning_credit_score&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ma&#47;machine_learning_credit_score&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1665468929206');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+  </body>
+</html>
