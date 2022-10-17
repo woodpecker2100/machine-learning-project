@@ -3,136 +3,200 @@
 <!--                                                            -->
 <!-- Issue:       29-Aug-2022                                   -->
 <!-- Presentation:12-Sep-2022                                   -->
-<!-- Team:        Team 6                                        -->  
+<!-- Team:        Team 6                                        -->
 <!-- Note:        Heroku deployment                             -->
 <!-- ===========================================================-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Embedded Analytics with Tableau</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <style>
-    h4 {text-align: center;}
-    p {text-align: center;}
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Embedded Analytics with Tableau</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <style>
+        h4 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<!--
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="nav-link" href="/">Home </a> | 
-          <a class="nav-link" href="#1">Models, train scores and test scores</a> | 
-          <a class="nav-link" href="#2">Logistic Regression</a> | 
-          <a class="nav-link" href="#3">KNN</a> |
-          <a class="nav-link" href="#4">RF Middle Ground</a> |
-          <a class="nav-link" href="#5">RF Feature Importance</a> |
-          <a class="nav-link" href="#6">Tableau triple line graph</a> |
-          <a class="nav-link" href="#7">Tableau impact on credit score</a> 
-
-    </div>
-  </nav>
--->
-
 <div class="hero text-center">
-  <h1>Credit Score Analysis</h1>
+    <h1>Credit Score Analysis</h1>
 </div>
 
-  <div class="row">
+<div class="row">
     <ol>
-    “Create an analysis of existing data to make a prediction, classification, or regression.”
-    As per final project requirements
-  <ol>
-    <li>Outline data set used/source:</li>
-    <b>Credit score classification from kaggle.com:</b><br>
-    <a href='https://www.kaggle.com/datasets/parisrohan/credit-score-classification' target="_new">https://www.kaggle.com/datasets/parisrohan/credit-score-classification</a>
-    <br><br>
-    A data set that contains a range of credit-related information, both numerical and categorical.<br> 
-    The goal of our ML model is to predict the credit score of an individual based on variables contained in the data set.<br><br>
-    
-    <b>From equifax.com: </b> <br>
-    
-    A credit score is a three-digit number designed to represent the likelihood you will pay your bills on time. There are many different credit scores and scoring models. Higher credit scores generally result in more favourable credit terms.
-    <hr>
-    <li>Prediction:</li>
-    Variables contained in the data set include:
-    
-    <ul> 
-      <li>Unnamed: 0
-      <li>Month
-      <li>age	
-      <li>occupation	
-      <li>annual_income	
-      <li>num_bank_accounts	
-      <li>num_credit_card	
-      <li>interest_rate	
-      <li>num_of_loan	
-      <li>type_of_loan	...	
-      <li>credit_mix	
-      <li>outstanding_debt	
-      <li>credit_utilization_ratio	payment_of_min_amount	
-      <li>total_emi_per_month	amount_invested_monthly	
-      <li>payment_behaviour	
-      <li>Monthly_balance
-      <li>credit_score	
-      <li>credit_history_age_new
->    </ul>
-    The full definitions of these variables are available on kaggle.com<br><br>
-  
-    Credit score is one-hot encoded as 0,1, and 2.<br>
-    The following figure represents the mix of credit score as found in the dataframe:<br>
-    <img src="../Resources/credit_score.png">
+        “Create an analysis of existing data to make a prediction, classification, or regression.”
+        As per final project requirements:
+        <li>Outline data set used/source:</li>
+        <b>Credit score classification from kaggle.com:</b><br>
+        <a href='https://www.kaggle.com/datasets/parisrohan/credit-score-classification' target="_new">https://www.kaggle.com/datasets/parisrohan/credit-score-classification</a>
+        <br><br>
+        A data set that contains a range of credit-related information, both numerical and categorical.<br>
+        The goal of our ML model is to predict the credit score of an individual based on variables contained in the
+        data set.<br><br>
+
+        <b>From equifax.com: </b> <br>
+
+        A credit score is a three-digit number designed to represent the likelihood you will pay your bills on time.
+        There are many different credit scores and scoring models. Higher credit scores generally result in more
+        favourable credit terms.
+        <hr>
+        <li>Prediction:</li>
+        Variables contained in the data set include:
+      <br>
+        <table>
+            <colgroup>
+                <col span="1" style="width: 30%;">
+                <col span="1" style="width: 70%;">
+            </colgroup>
+            <tbody>
+            <tr>
+                <td>ID</td>
+                <td>Represents a unique identification of an entry</td>
+            </tr>
+            <tr>
+                <td>Customer_ID</td>
+                <td>Represents a unique identification of a person</td>
+            </tr>
+            <tr>
+                <td>Month</td>
+                <td>Represents the month of the year</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Represents the name of a person</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>Represents the age of the person</td>
+            </tr>
+            <tr>
+                <td>SSN</td>
+                <td>Represents the social security number of a person</td>
+            </tr>
+            <tr>
+                <td>Occupation</td>
+                <td>Represents the occupation of the person</td>
+            </tr>
+            <tr>
+                <td>Annual_Income</td>
+                <td>Represents the annual income of the person</td>
+            </tr>
+            <tr>
+                <td>Monthly_Inhand_Salary</td>
+                <td>Represents the monthly base salary of a person</td>
+            </tr>
+            <tr>
+                <td>Num_Bank_Accounts</td>
+                <td>Represents the number of bank accounts a person holds</td>
+            </tr>
+            <tr>
+                <td>Num_Credit_Card</td>
+                <td>Represents the number of other credit cards held by a person</td>
+            </tr>
+            <tr>
+                <td>Interest_Rate</td>
+                <td>Represents the interest rate on credit card</td>
+            </tr>
+            <tr>
+                <td>Num_of_Loan</td>
+                <td>Represents the number of loans taken from the bank</td>
+            </tr>
+            <tr>
+                <td>Type_of_Loan</td>
+                <td>Represents the types of loan taken by a person</td>
+            </tr>
+            <tr>
+                <td>Delay_from_due_date</td>
+                <td>Represents the average number of days delayed from the payment date</td>
+            </tr>
+            <tr>
+                <td>Num_of_Delayed_Payment</td>
+                <td>Represents the average number of payments delayed by a person</td>
+            </tr>
+            <tr>
+                <td>Changed_Credit_Limit</td>
+                <td>Represents the percentage change in credit card limit</td>
+            </tr>
+            <tr>
+                <td>Num_Credit_Inquiries</td>
+                <td>Represents the number of credit card inquiries</td>
+            </tr>
+            <tr>
+                <td>Credit_Mix</td>
+                <td>Represents the classification of the mix of credits</td>
+            </tr>
+            <tr>
+                <td>Outstanding_Debt</td>
+                <td>Represents the remaining debt to be paid (in USD)</td>
+            </tr>
+            <tr>
+                <td>Credit_Utilization_Ratio</td>
+                <td>Represents the utilization ratio of credit card</td>
+            </tr>
+            <tr>
+                <td>Credit_History_Age</td>
+                <td>Represents the age of credit history of the person</td>
+            </tr>
+            <tr>
+                <td>Payment_of_Min_Amount</td>
+                <td>Represents whether only the minimum amount was paid by the person</td>
+            </tr>
+            <tr>
+                <td>Total_EMI_per_month</td>
+                <td>Represents the monthly EMI payments (in USD)</td>
+            </tr>
+            <tr>
+                <td>Amount_invested_monthly</td>
+                <td>Represents the monthly amount invested by the customer (in USD)</td>
+            </tr>
+            <tr>
+                <td>Payment_Behaviour</td>
+                <td>Represents the payment behavior of the customer (in USD)</td>
+            </tr>
+            <tr>
+                <td>Monthly_Balance</td>
+                <td>Represents the monthly balance amount of the customer (in USD)</td>
+            </tr>
+
+
+            </tbody>
+        </table>
+
+<br>
+        The full definitions of these variables are available on kaggle.com<br><br>
+
+        Credit score is one-hot encoded as 0,1, and 2.<br>
+        The following figure represents the mix of credit score as found in the dataframe:<br>
+        <img src="../Resources/credit_score.png">
+        <br><br>
+
+        <b>Prediction:</b><br>
+        We anecdotally assume that variables  to do with monetary value such as annual_income, outstanding_debt, num_of_loan will have the highest impact on credit_score outcome. 
+        <br>After completion of our RF model, we run a feature importance function to check which variables have the highest weight on credit score outcomes. Theses outcomes are seen below:
         <br>
-    We assume that variables  to do with monetary value such as annual_income, outstanding_debt, num_of_loan will have the highest impact on credit_score outcome. 
- 
+        <img src="../Resources/prediction1.jpg"><br><br>
+        The top 4 variables that have the biggest outcome on credit score are:<br>
+        interest _rate, num_credit_inquires, delay_from_due_date, credit_utilization_ratio. This is in contrast to what we thought would traditionally have the biggest outcomes on credit score.
+        <br><br>We retrospectively tuned our ML algorithms based on the rf.feature importance outcomes. The fintesting and training scores are listed in the table below:
+        <br><img src="../Resources/prediction2.jpg"><br><br>
 
-  </ol> 
-
-
-    
-  </ol>
+    </ol>
+    </ol>
 </div>
-
-  <hr>
-<!--
-  <div class="col-md-12  text-centre"  >
-    <h1 style="color: #0b2ca4f3;" id="7">Tableau triple line graph on the correlation between age, median salary and credit score</h1>
-   </div>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <a class="nav-link" href="/">Home </a> 
-    </div>
-   </nav>
-  
-<div class='tableauPlaceholder' 
-  id='viz1665901463857' 
-  style='position: relative'><noscript>
-    <a href='#'><img alt='credit score changes by median income and age (2) ' 
-    src='https:/;/;public.tableau.com/;static/;images/;ma/;machine_learning_credit_score/;creditscorechangesbymedianincomeandage2/;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='machine_learning_credit_score/;creditscorechangesbymedianincomeandage2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:/;/;public.tableau.com/;static/;images/;ma/;machine_learning_credit_score/;creditscorechangesbymedianincomeandage2/;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1665901463857');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
-
-<div class="col-md-12  text-centre"  >
-  <h1 style="color: #0b2ca4f3;" id="6">Tableau representations (correlation between occupation and credit score)</h1>
- </div>
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="nav-link" href="/">Home </a> 
-  </div>
- </nav>
- 
- <div class='tableauPlaceholder' id='viz1665468929206' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:/;/;public.tableau.com/;static/;images/;ma/;machine_learning_credit_score/;Dashboard1/;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='machine_learning_credit_score/;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:/;/;public.tableau.com/;static/;images/;ma/;machine_learning_credit_score/;Dashboard1/;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1665468929206');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='420px';vizElement.style.maxWidth='650px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
- 
- <hr>
- 
- 
--->
-
+<hr>
 
 </body>
 </html>
